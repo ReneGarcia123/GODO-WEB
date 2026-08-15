@@ -9,7 +9,17 @@
 
   box-sizing: border-box;
 
-  background: var(--bg-base);
+  /*
+    SIN FONDO.
+    La página ya tiene su fondo global.
+  */
+
+  background: transparent;
+
+  border: none;
+  outline: none;
+
+  margin: 0;
 }
 
 
@@ -23,8 +33,14 @@
   margin: 0 auto 3.5rem;
 
   text-align: center;
+
+  background: transparent;
 }
 
+
+/* ============================================
+   EYEBROW
+   ============================================ */
 
 .gallery-eyebrow {
   display: inline-flex;
@@ -63,6 +79,10 @@
 }
 
 
+/* ============================================
+   TÍTULO
+   ============================================ */
+
 .gallery-header h2 {
   margin: 0;
 
@@ -70,7 +90,11 @@
 
   font-family: var(--font-heading);
 
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(
+    2.8rem,
+    6vw,
+    5rem
+  );
 
   font-weight: var(--fw-bold);
 
@@ -86,6 +110,10 @@
   color: var(--color-accent);
 }
 
+
+/* ============================================
+   DESCRIPCIÓN
+   ============================================ */
 
 .gallery-header p {
   max-width: 600px;
@@ -118,6 +146,8 @@
   grid-auto-rows: 220px;
 
   gap: 0.8rem;
+
+  background: transparent;
 }
 
 
@@ -141,6 +171,11 @@
 
   cursor: pointer;
 
+  /*
+    El fondo solo sirve como respaldo
+    mientras carga la imagen.
+  */
+
   background: var(--bg-surface);
 }
 
@@ -151,6 +186,7 @@
 
 .gallery-item--1 {
   grid-column: span 2;
+
   grid-row: span 2;
 }
 
@@ -384,15 +420,19 @@
     grid-auto-rows: 240px;
   }
 
+
   .gallery-item--1 {
     grid-column: span 2;
+
     grid-row: span 2;
   }
+
 
   .gallery-item--2,
   .gallery-item--3 {
     grid-row: span 1;
   }
+
 
   .gallery-item--4,
   .gallery-item--5,
@@ -411,16 +451,29 @@
 
   .gallery-section {
     padding: 5rem 1rem;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    margin: 0;
   }
 
 
   .gallery-header {
     margin-bottom: 2.5rem;
+
+    background: transparent;
   }
 
 
   .gallery-header h2 {
-    font-size: clamp(2.5rem, 12vw, 3.8rem);
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      3.8rem
+    );
   }
 
 
@@ -435,6 +488,8 @@
     grid-auto-rows: 260px;
 
     gap: 0.75rem;
+
+    background: transparent;
   }
 
 
@@ -452,13 +507,17 @@
 
   /*
     En móvil no necesitamos
-    el overlay permanente.
+    el overlay.
   */
 
   .gallery-item__overlay {
     display: none;
   }
 
+
+  /* ==========================================
+     LIGHTBOX MOBILE
+     ========================================== */
 
   .gallery-lightbox {
     padding: 1rem;

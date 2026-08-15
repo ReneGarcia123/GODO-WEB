@@ -9,6 +9,9 @@ import communityStatsData from "./data/communityStatsData.js";
 import Gallery from "./components/Gallery/Gallery.jsx";
 import galleryData from "./data/galleryData.js";
 
+import NextEvent from "./components/NextEvent/NextEvent.jsx"
+import nextEventData from "./data/nextEventData.js"
+
 const Inicio = () => {
   return (
     <main>
@@ -18,6 +21,8 @@ const Inicio = () => {
       <FeaturesSection />
 
       <CommunityStats data={communityStatsData} />
+
+      <NextEvent data={nextEventData}/>
 
       <Gallery images={galleryData} />
 
