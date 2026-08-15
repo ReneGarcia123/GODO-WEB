@@ -99,7 +99,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61572316743919"
               className="footer__social"
               aria-label="Facebook"
               target="_blank"

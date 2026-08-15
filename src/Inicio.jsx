@@ -1,10 +1,11 @@
 import React from "react";
+import Hero from "./components/Hero/Hero.jsx"
+import inicioData from "./data/inicioData.js"
 
 const Inicio = () => {
   return (
     <main>
-      <h1>GODO Running INICIO</h1>
-
+      <Hero data={inicioData.data}/>
     </main>
   );
 };

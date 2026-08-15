@@ -1,0 +1,703 @@
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  min-height: calc(100vh - 82px);
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background: var(--bg-base);
+}
+
+
+/* ============================================
+   FONDO
+   ============================================ */
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index: 0;
+
+  background: var(--bg-base);
+}
+
+/* ============================================
+   SLIDES
+   ============================================ */
+
+.hero__slide {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  z-index: 1;
+
+  /*
+    IMPORTANTE:
+    Todas las imágenes están
+    exactamente una encima de otra.
+  */
+
+  transition:
+    opacity 3500ms ease-in-out;
+}
+
+
+/* ============================================
+   IMAGEN
+   ============================================ */
+
+.hero__slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1.03);
+
+  filter:
+    saturate(0.82)
+    contrast(1.03);
+
+  transition:
+    transform 10000ms ease-out;
+}
+
+
+/* ============================================
+   IMÁGENES DEL HERO
+   ============================================ */
+
+.hero__image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /*
+    Todas las imágenes permanecen
+    en la misma posición.
+  */
+
+  opacity: 0;
+
+  /*
+    El zoom inicial es pequeño.
+  */
+
+  transform: scale(1.05);
+
+  filter:
+    saturate(0.82)
+    contrast(1.03);
+
+  /*
+    FADE REAL
+    La entrada y salida duran lo mismo.
+  */
+
+  transition:
+    opacity 2800ms ease-in-out,
+    transform 9000ms ease-out;
+
+  /*
+    Ayuda al navegador a preparar
+    la animación.
+  */
+
+  will-change:
+    opacity,
+    transform;
+
+  /*
+    Importante:
+    evita que una imagen invisible
+    interfiera visualmente.
+  */
+
+  pointer-events: none;
+}
+/* ============================================
+   IMAGEN ACTIVA
+   ============================================ */
+
+.hero__image--active {
+  opacity: 1;
+
+  transform: scale(1.10);
+}
+
+
+/* Imagen actual */
+
+.hero__image--current {
+  opacity: 1;
+}
+
+
+/* Imagen siguiente */
+
+.hero__image--next {
+  opacity: 0;
+
+  transition:
+    opacity 2200ms ease-in-out;
+}
+
+
+/* Cuando empieza el fade */
+
+.hero__image--next.hero__image--visible {
+  opacity: 1;
+}
+
+/* ============================================
+   SLIDE ACTIVO
+   ============================================ */
+
+.hero__slide--active {
+  opacity: 1;
+
+  z-index: 2;
+}
+
+
+/* ============================================
+   ZOOM DEL SLIDE ACTIVO
+   ============================================ */
+
+.hero__slide--active img {
+  transform: scale(1.08);
+}
+
+
+/* ============================================
+   OVERLAY
+   ============================================ */
+
+.hero__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 14, 20, 0.94) 0%,
+      rgba(10, 14, 20, 0.78) 35%,
+      rgba(10, 14, 20, 0.48) 65%,
+      rgba(10, 14, 20, 0.72) 100%
+    );
+}
+
+
+/* ============================================
+   DEGRADADO INFERIOR
+   ============================================ */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 14, 20, 0.05) 0%,
+      transparent 55%,
+      rgba(10, 14, 20, 0.95) 100%
+    );
+}
+
+
+/* ============================================
+   CONTENIDO
+   ============================================ */
+
+.hero__content {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(100% - 3rem, 1100px);
+
+  margin-inline: auto;
+
+  padding-block: 7rem 6rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+/* ============================================
+   EYEBROW
+   ============================================ */
+
+.hero__eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  margin-bottom: 1.25rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-base);
+
+  font-size: 0.78rem;
+
+  font-weight: var(--fw-bold);
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+.hero__eyebrow::before {
+  content: "";
+
+  width: 32px;
+  height: 2px;
+
+  background: var(--color-accent);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 10px var(--color-accent-glow);
+}
+
+
+/* ============================================
+   TÍTULO
+   ============================================ */
+
+.hero__title {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(
+    4rem,
+    10vw,
+    8.5rem
+  );
+
+  font-weight: var(--fw-bold);
+
+  line-height: 0.88;
+
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+
+  text-wrap: balance;
+
+  text-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ============================================
+   SUBTÍTULO
+   ============================================ */
+
+.hero__subtitle {
+  max-width: 700px;
+
+  margin: 1.75rem 0 0;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(
+    1.5rem,
+    3vw,
+    2.4rem
+  );
+
+  font-weight: var(--fw-semibold);
+
+  line-height: 1.15;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* ============================================
+   DESCRIPCIÓN
+   ============================================ */
+
+.hero__description {
+  max-width: 600px;
+
+  margin: 1.25rem 0 0;
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-base);
+
+  font-size: 1.05rem;
+
+  line-height: 1.7;
+}
+
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.hero__actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-top: 2.25rem;
+}
+
+
+/* ============================================
+   BOTÓN SECUNDARIO
+   ============================================ */
+
+.hero__secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding-inline: 1.5rem;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-base);
+
+  font-size: 0.95rem;
+
+  font-weight: var(--fw-semibold);
+
+  text-decoration: none;
+
+  border: 1px solid var(--border-strong);
+
+  border-radius: 8px;
+
+  background: rgba(10, 14, 20, 0.25);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    color 250ms ease,
+    background 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
+
+.hero__secondary:hover {
+  color: var(--text-primary);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border-color: rgba(255, 255, 255, 0.18);
+
+  transform: translateY(-2px);
+}
+
+
+/* ============================================
+   SCROLL
+   ============================================ */
+
+.hero__scroll {
+  position: absolute;
+
+  left: 50%;
+  bottom: 2rem;
+
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-base);
+
+  font-size: 0.65rem;
+
+  font-weight: var(--fw-semibold);
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+.hero__scroll-arrow {
+  color: var(--color-accent);
+
+  font-size: 1.15rem;
+
+  animation:
+    heroScrollArrow 1.8s ease-in-out infinite;
+}
+
+
+@keyframes heroScrollArrow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (max-width: 860px) {
+
+  .hero {
+    min-height: calc(100vh - 70px);
+  }
+
+  .hero__content {
+    width: calc(100% - 2rem);
+
+    padding-block: 5rem 6rem;
+  }
+
+  .hero__title {
+    font-size: clamp(
+      3.4rem,
+      12vw,
+      6rem
+    );
+  }
+
+  .hero__subtitle {
+    font-size: clamp(
+      1.3rem,
+      4vw,
+      1.8rem
+    );
+  }
+}
+
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: calc(100svh - 70px);
+  }
+
+  .hero__background {
+    opacity: 0.85;
+  }
+
+  .hero__slide img {
+    filter:
+      saturate(0.7)
+      contrast(1.05);
+
+    transform: scale(1.02);
+  }
+
+  .hero__slide--active img {
+    transform: scale(1.06);
+  }
+
+  .hero__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(10, 14, 20, 0.91) 0%,
+        rgba(10, 14, 20, 0.72) 100%
+      );
+  }
+
+  .hero__content {
+    width: calc(100% - 2rem);
+
+    padding-block: 4rem 5rem;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 1rem;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.14em;
+  }
+
+  .hero__eyebrow::before {
+    width: 24px;
+  }
+
+  .hero__title {
+    font-size: clamp(
+      3.1rem,
+      17vw,
+      5rem
+    );
+
+    line-height: 0.9;
+
+    letter-spacing: -0.06em;
+  }
+
+  .hero__subtitle {
+    margin-top: 1.25rem;
+
+    font-size: 1.35rem;
+
+    line-height: 1.2;
+  }
+
+  .hero__description {
+    margin-top: 1rem;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+  }
+
+  .hero__actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0.75rem;
+
+    margin-top: 1.75rem;
+  }
+
+  .hero__actions .btn-accent,
+  .hero__secondary {
+    width: 100%;
+
+    min-height: 50px;
+
+    box-sizing: border-box;
+  }
+
+  .hero__scroll {
+    bottom: 1.15rem;
+
+    font-size: 0.58rem;
+  }
+}
+
+
+/* ============================================
+   MOBILE PEQUEÑO
+   ============================================ */
+
+@media (max-width: 380px) {
+
+  .hero__title {
+    font-size: 2.8rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero__description {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ============================================
+   MOVIMIENTO REDUCIDO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero__slide {
+    transition: none;
+  }
+
+  .hero__slide img {
+    transition: none;
+  }
+
+  .hero__scroll-arrow {
+    animation: none;
+  }
+}
