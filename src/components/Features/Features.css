@@ -1,0 +1,310 @@
+/* ============================================
+   FEATURES
+   ============================================ */
+
+.features-section {
+  width: 100%;
+
+  padding: 7rem 1.5rem;
+
+  box-sizing: border-box;
+
+  background: #0a0e14;
+
+  border: none;
+  outline: none;
+
+  margin: 0;
+}
+
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.features-header {
+  width: min(100%, 1100px);
+
+  margin: 0 auto 3.5rem;
+
+  text-align: center;
+}
+
+
+.features-header h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+  font-weight: var(--fw-bold);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+}
+
+
+.features-header p {
+  max-width: 650px;
+
+  margin: 1.25rem auto 0;
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-base);
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+
+/* ============================================
+   GRID
+   ============================================ */
+
+.features-grid {
+  width: min(100%, 1100px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1rem;
+}
+
+
+/* ============================================
+   CARD
+   ============================================ */
+
+.feature-card {
+  position: relative;
+
+  min-height: 230px;
+
+  padding: 2rem 1.75rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: flex-start;
+
+  box-sizing: border-box;
+
+  /*
+    SIN FONDO.
+    Dejamos ver el degradado de la página.
+  */
+
+  background: transparent;
+
+  border: 1px solid var(--border-subtle);
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease,
+    box-shadow 500ms ease;
+}
+
+
+/* ============================================
+   BRILLO SUTIL
+   ============================================ */
+
+.feature-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(0, 255, 204, 0.06),
+      transparent 60%
+    );
+
+  transition:
+    opacity 700ms ease;
+}
+
+
+/* ============================================
+   HOVER
+   ============================================ */
+
+.feature-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(0, 255, 204, 0.22);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+
+/* ============================================
+   ICONO
+   ============================================ */
+
+.feature-card .icon {
+  position: relative;
+
+  z-index: 1;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--color-accent);
+
+  font-size: 1.25rem;
+
+  border-radius: 10px;
+
+  /*
+    También transparente.
+  */
+
+  background: rgba(0, 255, 204, 0.045);
+
+  border: 1px solid rgba(0, 255, 204, 0.10);
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 500ms ease,
+    border-color 500ms ease;
+}
+
+
+.feature-card:hover .icon {
+  transform: translateY(-2px);
+
+  background: rgba(0, 255, 204, 0.08);
+
+  border-color: rgba(0, 255, 204, 0.18);
+}
+
+
+/* ============================================
+   TÍTULO
+   ============================================ */
+
+.feature-card h3 {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-heading);
+
+  font-size: 1.2rem;
+
+  font-weight: var(--fw-semibold);
+
+  line-height: 1.2;
+}
+
+
+/* ============================================
+   DESCRIPCIÓN
+   ============================================ */
+
+.feature-card p {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0.75rem 0 0;
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-base);
+
+  font-size: 0.9rem;
+
+  line-height: 1.65;
+}
+
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (max-width: 900px) {
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 600px) {
+
+  .features-section {
+    padding: 5rem 1rem;
+
+    margin: 0;
+
+    border: none;
+    outline: none;
+  }
+
+  .features-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .feature-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .feature-card:hover {
+    transform: none;
+  }
+}
