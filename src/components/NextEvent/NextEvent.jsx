@@ -62,7 +62,6 @@ const NextEvent = ({ data }) => {
           <a
             href={data.buttonUrl}
             className="next-event__button"
-            target="_blank"
             rel="noopener noreferrer"
           >
             {data.buttonText}

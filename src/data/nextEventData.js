@@ -10,7 +10,7 @@ const nextEventData = {
 
   date: "PRÓXIMAMENTE",
 
-  location: "Lima, Perú",
+  location: "Cayma, Arequipa",
 
   buttonText: "QUIERO PARTICIPAR",
 

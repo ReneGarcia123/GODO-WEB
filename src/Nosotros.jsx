@@ -1,8 +1,17 @@
 import React from 'react'
+import AboutHero from "./components/AboutHero/AboutHero.jsx";
+import aboutHeroData from "./data/aboutHeroData.js"
+import FeaturesSection2 from "./components/Features2/FeatersSection2.jsx";
+
 
 const Nosotros = () => {
   return (
-    <h1>Nosotros</h1>
+    <main>
+      <AboutHero data={aboutHeroData}/>
+      <FeaturesSection2/>
+
+    </main>
+    
   )
 }
 

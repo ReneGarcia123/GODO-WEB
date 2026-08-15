@@ -2,8 +2,10 @@ import React from 'react'
 
 const Eventos = () => {
   return (
-    <h1>Eventos</h1>
-  )
-}
+    <main>
+      <h1>Eventos Próximamente</h1>
+    </main>
+  );
+};
 
-export default Eventos
+export default Eventos;
