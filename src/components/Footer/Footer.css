@@ -1,0 +1,457 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 5rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-base) 0%,
+      #080c12 100%
+    );
+
+  border-top: 1px solid var(--border-subtle);
+
+  overflow: hidden;
+}
+
+
+/* ============================================
+   BRILLO SUPERIOR
+   ============================================ */
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 500px;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background: var(--color-accent);
+
+  opacity: 0.35;
+
+  box-shadow:
+    0 0 25px var(--color-accent-glow);
+}
+
+
+/* ============================================
+   CONTENEDOR
+   ============================================ */
+
+.footer__container {
+  width: 100%;
+  max-width: 1100px;
+
+  margin-inline: auto;
+
+  padding:
+    4rem 3rem
+    3.5rem;
+
+  display: grid;
+
+  grid-template-columns:
+    2fr
+    1fr
+    1fr;
+
+  gap: 4rem;
+}
+
+
+/* ============================================
+   MARCA
+   ============================================ */
+
+.footer__brand {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+/* ============================================
+   LOGO
+   ============================================ */
+
+.footer__logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 1.25rem;
+}
+
+.footer__logo img {
+  display: block;
+
+  width: 175px;
+  height: auto;
+
+  filter:
+    drop-shadow(
+      0 3px 12px rgba(0, 255, 204, 0.10)
+    );
+
+  transition:
+    filter 300ms ease,
+    transform 300ms ease;
+}
+
+.footer__logo:hover img {
+  transform: translateY(-2px);
+
+  filter:
+    drop-shadow(
+      0 5px 16px rgba(0, 255, 204, 0.18)
+    );
+}
+
+
+/* ============================================
+   DESCRIPCIÓN
+   ============================================ */
+
+.footer__description {
+  max-width: 300px;
+
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-base);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+
+/* ============================================
+   COLUMNAS
+   ============================================ */
+
+.footer__column {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+/* ============================================
+   TÍTULOS
+   ============================================ */
+
+.footer__title {
+  margin: 0 0 1.25rem;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-base);
+
+  font-size: 0.85rem;
+
+  font-weight: var(--fw-bold);
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+.footer__links {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 0.8rem;
+}
+
+.footer__links a {
+  color: var(--text-muted);
+
+  font-family: var(--font-base);
+
+  font-size: 0.95rem;
+
+  text-decoration: none;
+
+  transition:
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.footer__links a:hover {
+  color: var(--text-primary);
+
+  transform: translateX(3px);
+}
+
+
+/* ============================================
+   REDES SOCIALES
+   ============================================ */
+
+.footer__socials {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.8rem;
+}
+
+
+.footer__social {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-base);
+
+  font-size: 0.95rem;
+
+  text-decoration: none;
+
+  transition:
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+
+.footer__social svg {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  transition:
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+
+.footer__social:hover {
+  color: var(--text-primary);
+
+  transform: translateX(3px);
+}
+
+
+.footer__social:hover svg {
+  color: var(--color-accent);
+
+  transform: scale(1.08);
+}
+
+
+/* ============================================
+   PARTE INFERIOR
+   ============================================ */
+
+.footer__bottom {
+  width: 100%;
+  max-width: 1100px;
+
+  margin-inline: auto;
+
+  padding:
+    1.4rem 3rem;
+
+  border-top: 1px solid var(--border-subtle);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+
+.footer__bottom p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 0.78rem;
+}
+
+
+.footer__bottom-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1.5rem;
+}
+
+
+.footer__bottom-links a {
+  color: var(--text-muted);
+
+  font-size: 0.78rem;
+
+  text-decoration: none;
+
+  transition: color 200ms ease;
+}
+
+
+.footer__bottom-links a:hover {
+  color: var(--text-primary);
+}
+
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (max-width: 800px) {
+
+  .footer__container {
+    grid-template-columns:
+      1.5fr
+      1fr
+      1fr;
+
+    gap: 2.5rem;
+  }
+}
+
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 600px) {
+
+  .footer {
+    margin-top: 3.5rem;
+  }
+
+
+  .footer__container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2.5rem;
+
+    padding:
+      3.5rem 1.25rem
+      2.5rem;
+  }
+
+
+  /* ============================================
+     MARCA
+     ============================================ */
+
+  .footer__logo img {
+    width: 160px;
+  }
+
+
+  .footer__description {
+    max-width: 280px;
+
+    font-size: 0.9rem;
+  }
+
+
+  /* ============================================
+     COLUMNAS
+     ============================================ */
+
+  .footer__column {
+    width: 100%;
+
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--border-subtle);
+  }
+
+
+  .footer__title {
+    margin-bottom: 1rem;
+  }
+
+
+  /* ============================================
+     REDES
+     ============================================ */
+
+  .footer__socials {
+    gap: 0.9rem;
+  }
+
+
+  .footer__social {
+    font-size: 0.9rem;
+  }
+
+
+  /* ============================================
+     BOTTOM
+     ============================================ */
+
+  .footer__bottom {
+    padding:
+      1.25rem;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 0.8rem;
+  }
+
+
+  .footer__bottom-links {
+    gap: 1.25rem;
+  }
+}
+
+
+/* ============================================
+   MOVIMIENTO REDUCIDO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .footer__logo img,
+  .footer__links a,
+  .footer__social,
+  .footer__social svg,
+  .footer__bottom-links a {
+    transition: none;
+  }
+}

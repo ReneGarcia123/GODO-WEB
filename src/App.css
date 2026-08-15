@@ -1,0 +1,31 @@
+/* ============================================
+   APP
+   ============================================ */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.app__content {
+  flex: 1;
+  width: 100%;
+}
