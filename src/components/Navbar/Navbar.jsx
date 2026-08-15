@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 const LOGO_URL =
   "https://res.cloudinary.com/oapmwjam/image/upload/v1786752071/LOGO_HEADER_2.png";
 
+const mensaje_wts=
+  "https://api.whatsapp.com/send/?phone=51959495125&text=Hola+estoy+interesado+en+el+evento+Rompe+tus+limites+2da+edicion&type=phone_number&app_absent=0";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,12 +61,14 @@ export default function Navbar() {
             Nosotros
           </Link>
 
-          <Link
-            to="/#unirse"
-            className="btn-accent nav-cta"
-          >
-            Únete al equipo
-          </Link>
+        <a
+          href={mensaje_wts}
+          className="btn-accent nav-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contáctanos
+        </a>
         </nav>
 
         {/* BOTÓN MOBILE */}
@@ -113,13 +118,15 @@ export default function Navbar() {
           Nosotros
         </Link>
 
-        <Link
-          to="/#unirse"
+        <a
+          href={mensaje_wts}
           className="btn-accent nav-cta nav-cta--mobile"
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={handleLinkClick}
         >
-          Únete al equipo
-        </Link>
+          Contáctanos
+        </a>
       </nav>
     </header>
   );
